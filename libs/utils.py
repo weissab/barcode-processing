@@ -31,6 +31,14 @@ def read_genome(filename):
     return genome
 
 
+def read_barcodes(filename):
+    barcodes = []
+    with open(filename, 'r') as f:
+        for line in f:
+            barcodes.append(line)
+    return barcodes
+
+
 def reverse_complement(sequence):
     complement = {'A': 'T', 'C': 'G', 'G': 'C', 'T': 'A', 'N': 'N', 'a': 't', 'c': 'g', 'g': 'c', 't': 'a', 'n': 'n', }
     rev_comp_sequence = ''
@@ -70,23 +78,6 @@ def plot_histogram (hist):
     plt.show() 
 
 
-""" def findGCbyPos(reads):
-    gc = [0] * len(reads)
-    totals = [0] * len(reads)
-    for read in reads:
-        for i in range(len(reads)):
-            if read[i] == ‘c’ or read [i] == ‘g’:
-                gc[i] += 1
-            totals[i] += 1
-        for i in range(len(gc)):
-            if totals[i] > 0:
-                gc[i] /= float(totals[i]) #convert totals[i] to a float so it will not truncate integers or anything
-        return gc
-
-gc = findGCbyPos(seqs)
-plt.plot(range(len(gc)), gc)
-plt.show() """
-
 def nucleotide_distribution(reads):
     count = collections.counter()
     for seq in reads:
@@ -97,6 +88,7 @@ def nucleotide_distribution(reads):
 def pretty_print(value):
     pp = pprint.PrettyPrinter(indent=2)
     return pp.pprint(value)
+
 
 def hamming_distance(string1, string2):
     distance = 0
