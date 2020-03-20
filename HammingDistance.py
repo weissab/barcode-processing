@@ -2,8 +2,7 @@ import sys
 import csv
 from libs.utils import hamming_distance, read_barcodes
 
-# import file from website with ipython
-# !wget --no-check http:// ... 
+# calculates hamming distance between all pairs of sequence provided in a text file and returns list of all hamming distances. 
 
 # Input arguments - index file and number of indexes
 
@@ -25,9 +24,10 @@ def hamming_distance_all(indexes, num_index):
 def main():
     index_file, num_index = parse_args(sys.argv)
     indexes = read_barcodes(index_file)
-    hamming_distances = hamming_distance_all(indexes, int(num_index))
-    print(" Hamming Distances %s " % (hamming_distances))
-
+    value_hamming_distances = hamming_distance_all(indexes, int(num_index))
+    #value_hamming_distances = [int(x) for x in value_hamming_distances]
+    value_hamming_distances = [i for i in value_hamming_distances if i != 0]
+    print(" Min Hamming Distances %s " % (min(value_hamming_distances)))
 
 if __name__ == '__main__':
     main()

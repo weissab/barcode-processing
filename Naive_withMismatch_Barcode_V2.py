@@ -83,7 +83,7 @@ def count_barcodes_v2(barcodes, sequ_read, max_mismatch):
 
 
 def write_to_csv(filename, results):
-    with open(filename,'w') as f:
+    with open(filename,'w', newline='') as f:
         w = csv.writer(f)
         w.writerows(results.items())
 
@@ -92,7 +92,7 @@ def main():
     filename, barcode_file, mismatch = parse_args(sys.argv)
     reference_file = read_genome(filename)
     barcodes = read_barcodes(barcode_file)
-    barcode_count = count_barcodes_v2(barcodes, reference_file, mismatch)
+    barcode_count = count_barcodes(barcodes, reference_file, mismatch)
     write_to_csv("%s_result.csv" % filename, barcode_count)
     print(" Table of barcodes %s " % (barcode_count))
 
