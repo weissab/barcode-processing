@@ -1,5 +1,16 @@
 #!/bin/bash
+"""
+By: Andrea Weiss
+Last edited: 15 April 2020
 
+This script runs through all files in a specified directory and runs bbmerge (from bbmap suit software) on each file
+
+INPUTS
+READ1: path to location of reads 1
+
+
+NOTE: read1 and read2 must have the same name and be stored in the same location in folders labeled Read1 and Read2, respectively, or they will not be merged
+"""
 
 READ1=$(ls ~/Desktop/NGS_Teng/Data/Demultiplexed/Read1/*.fastqsanger)
 

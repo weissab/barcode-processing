@@ -4,10 +4,17 @@ import sys
 import csv
 from libs.utils import read_barcodes, reverse_complement
 
-# import file from website with ipython
-# !wget --no-check http:// ... 
+"""
+By: Andrea Weiss
+Last edited: 15 April 2020
 
-# Input arguments - filename, pattern to match and number of mismatches allowed
+Calculate the reverse complement of a list of sequences 
+
+INPUTS:
+barcode_file: file of all sequnces to take reverse complement of
+
+
+"""
 
 # parrse input arguments
 def parse_args(argv):

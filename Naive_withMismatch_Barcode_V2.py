@@ -4,10 +4,15 @@ import sys
 import csv
 from libs.utils import read_genome, read_barcodes
 
-# import file from website with ipython
-# !wget --no-check http:// ... 
+"""
+By: Andrea Weiss
+Last edited: 15 April 2020
 
-# Input arguments - filename, pattern to match and number of mismatches allowed
+INPUTS
+filename: sequencing reads to search through to match barcodes to 
+barcode_file: file containing all known target barcodes (i.e. pattern to match sequencing reads) 
+mismatch: number of mismatches to allow during matching process
+"""
 
 # parrse input arguments
 def parse_args(argv):

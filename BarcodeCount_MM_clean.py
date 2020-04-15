@@ -4,8 +4,11 @@ import sys, os
 import csv
 from libs.utils import read_genome, read_barcodes
 
-# import file from website with ipython
-# !wget --no-check http:// ... 
+""" 
+Cleaned version of Naive matching algorithm for barcode matching. Removed redundant versions of code to keeep 
+only the most efficient version. 
+
+"""
 
 
 # Input arguments - filename, pattern to match and number of mismatches allowed

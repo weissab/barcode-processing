@@ -1,5 +1,23 @@
+import sys
 import os
 import csv
+
+"""
+By: Andrea Weiss (with much help from Loic Gasser)
+Last edited: 15 April 2020
+
+This program is designed to merge the .csv output files after running the barcode matching .py script on 
+The header of each column in the resulting file will correspond to each sample id (corresponding to the name of the original .csv file)
+
+INPUTS: 
+direcotry: path to all files to be merged
+"""
+
+
+# parrse input arguments
+def parse_args(argv):
+    directory = argv[1]
+    return directory
 
 
 def list_csvs(path):
@@ -14,7 +32,7 @@ def read_cvs(filename):
 
 
 def main():
-    directory = '../NGS_Teng/Data/Merged'
+    directory = parse_args(sys.argv)
     basenames = [os.path.basename(csv_file).split('.fastqsanger.fastqsanger_result.csv')[0] for csv_file in list_csvs(directory)]
 
     with open('{}/all_results.csv'.format(directory), 'w', newline='') as final:
